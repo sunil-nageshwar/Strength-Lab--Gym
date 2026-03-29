@@ -542,3 +542,8 @@ nav ul li:nth-child(4) a {
     width: 135px;
   }
 }
+@media (max-width: 480px) {
+  #goTopBtn{
+    font-size: 20;
+  }
+}

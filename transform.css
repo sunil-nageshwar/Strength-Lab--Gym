@@ -269,3 +269,9 @@ nav ul li:nth-child(4) a {
     right: 20px;
   }
 }
+
+@media (max-width: 480px) {
+  #goTopBtn{
+    font-size: 20;
+  }
+}

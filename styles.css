@@ -451,4 +451,15 @@ nav ul li:nth-child(4) a {
     margin: 0 auto;
     /* center each image */
   }
+
+}
+/* Mobile override */
+@media (max-width: 480px) {
+#h1 h1 {
+    color: #ffffff !important;
+    font-size: 24px;
+  }
+  #goTopBtn{
+    font-size: 20;
+  }
 }
