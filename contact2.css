@@ -1,0 +1,457 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #222;
+  color: #fff;
+}
+
+nav {
+  display: none;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  background: #333;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.menu-icon {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+/* Show menu inline on larger screens */
+@media (min-width: 768px) {
+  .menu-icon {
+    display: none;
+  }
+
+  nav {
+    display: block;
+    position: static;
+  }
+
+  nav ul {
+    flex-direction: row;
+    background: none;
+    position: static;
+    padding: 0;
+  }
+}
+
+nav ul li a {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background: #ff4b2b;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+a:hover {
+  background: linear-gradient(to bottom right, rgb(255, 50, 50), rgba(255, 30, 71, 0.46));
+  color: transparent;
+  background-clip: text;
+  font-size: 28px;
+}
+
+
+/* Main Layout */
+#main {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+#left,
+#right {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Contact Info */
+#le h2 {
+  color: #00e0ff;
+}
+
+#image div {
+  margin-bottom: 1.5rem;
+}
+
+#image h5 {
+  margin-top: 0.5rem;
+  color: #ff00ff;
+}
+
+#image p,
+#image a {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+}
+
+#image a:hover {
+  color: #00e0ff;
+}
+
+/* Form */
+
+#fo {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+#fo h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#fo label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+}
+
+#fo input,
+#fo textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transition: background 0.3s;
+}
+
+#fo input:focus,
+#fo textarea:focus {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+#fo button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(40, 209, 224, 0.964);
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+#fo button:hover {
+  transform: scale(1.05);
+  background: rgb(4, 152, 4);
+  color: #fff;
+}
+
+#fo input::placeholder {
+  color: #fff;
+}
+
+#fo textarea::placeholder {
+  color: #fff;
+}
+
+
+#heading h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: #fff;
+  animation: neonGlow 2s infinite alternate;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: oblique;
+  letter-spacing: 15px;
+  font-weight: 900;
+}
+
+@keyframes neonGlow {
+  from {
+    text-shadow: 0 0 10px #000000, 0 0 20px #ff8400;
+    color: #a11515;
+  }
+
+  to {
+    text-shadow: 0 0 20px #000000, 0 0 40px #ff8400;
+    color: #c9680d;
+  }
+}
+
+@media (max-width: 768px) {
+  #heading h1 {
+    font-size: clamp(18px, 6vw, 32px);
+
+  }
+}
+
+
+/* Contact Info Blocks */
+#image div {
+  display: flex;
+  /* Inline row layout */
+  flex-direction: row;
+  /* Force row direction */
+  align-items: center;
+  /* Vertically center icon + text */
+  gap: 10px;
+  /* Space between icon and text */
+  margin-bottom: 1rem;
+}
+
+/* Text beside icons */
+#image h5,
+#image p,
+#image a {
+  margin: 0;
+  text-align: left;
+}
+
+/* Responsive: keep rows centered on mobile */
+@media (max-width: 768px) {
+  #left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center the whole contact info section */
+    text-align: center;
+  }
+
+  #image div {
+    justify-content: center;
+    /* Center each row horizontally */
+    flex-direction: row;
+    /* Keep icon + text inline in a row */
+  }
+
+  #image h5,
+  #image p,
+  #image a {
+    text-align: center;
+    /* Center text if needed */
+  }
+}
+
+
+#main {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+#left,
+#right {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Mobile view: stack them */
+@media (max-width: 768px) {
+
+  #left,
+  #right {
+    flex: 100%;
+    /* take full width */
+    min-width: auto;
+  }
+}
+
+
+#goTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 30px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+#goTopBtn:hover {
+  background-color: #555;
+}
+
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  nav ul li a {
+    font-size: 0.85rem;
+    /* smaller text */
+    padding: 6px 10px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  nav ul li a {
+    font-size: 0.9rem;
+    padding: 7px 11px;
+  }
+}
+
+@keyframes fadeInLinks {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+nav ul li a {
+  animation: fadeInLinks 0.5s ease forwards;
+}
+
+/* Staggered animation */
+nav ul li:nth-child(1) a {
+  animation-delay: 0.1s;
+}
+
+nav ul li:nth-child(2) a {
+  animation-delay: 0.2s;
+}
+
+nav ul li:nth-child(3) a {
+  animation-delay: 0.3s;
+}
+
+nav ul li:nth-child(4) a {
+  animation-delay: 0.4s;
+}
+
+
+/* Mobile adjustments */
+@media (max-width: 576px) {
+  nav ul {
+    gap: 20px;
+    background: #333;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    width: 130px;
+  }
+
+  h5 {
+    font-size: 1.2rem;
+  }
+
+  label {
+    padding-left: 40%;
+  }
+}
+@media screen and (max-width: 480px) 
+{
+  p {
+    font-size: 14px !important;   /* force smaller text */
+    line-height: 1.4;
+  }
+}
+
+
+
+
+.contact-container {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #ffffff;
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container h2 {
+  color: rgb(36, 188, 201);
+  font-style: oblique;
+  margin-bottom: 10px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.contact-item i {
+  font-size: 22px;
+  color: rgb(36, 188, 201);
+  margin-right: 12px;
+}
+
+.contact-item p {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.contact-item a {
+  text-decoration: none;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: rgb(36, 201, 149);
+  font-size: 23px;
+}

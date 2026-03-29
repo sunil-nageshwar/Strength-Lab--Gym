@@ -1,0 +1,544 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #222;
+  color: #fff;
+}
+
+nav {
+  display: none;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  background: #333;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.menu-icon {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+/* Show menu inline on larger screens */
+@media (min-width: 768px) {
+  .menu-icon {
+    display: none;
+  }
+
+  nav {
+    display: block;
+    position: static;
+  }
+
+  nav ul {
+    flex-direction: row;
+    background: none;
+    position: static;
+    padding: 0;
+  }
+}
+
+
+nav ul li a {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background: #ff4b2b;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+
+h1 {
+  background: linear-gradient(to bottom right, rgb(224, 255, 50), rgb(232, 30, 255));
+  color: transparent;
+  background-clip: text;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h2,
+h4 {
+  padding-left: 60px;
+  color: azure;
+}
+
+ul>li {
+  font-size: 19px;
+  font-weight: 400;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+
+}
+
+p {
+  font-size: 19px;
+  font-weight: 400;
+  color: rgb(83, 255, 80);
+
+}
+
+a:hover {
+  background: linear-gradient(to bottom right, rgb(255, 50, 50), rgba(255, 30, 71, 0.46));
+  color: transparent;
+  background-clip: text;
+  font-size: 28px;
+}
+
+
+#main {
+  min-height: 100vh;
+  /* fills full viewport height */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url();
+  background-size: cover;
+  /* scale image to cover */
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 40px;
+  /* desktop spacing */
+}
+
+/* Tablet screens */
+@media (max-width: 1024px) {
+  #main {
+    flex-direction: column;
+    /* stack content vertically */
+    padding: 30px;
+    min-height: 90vh;
+    /* taller section */
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+  #main {
+    flex-direction: column;
+    padding: 25px;
+    min-height: auto;
+    /* let content define height */
+    text-align: center;
+  }
+
+  #main p,
+  #main span,
+  #main div {
+    font-size: 1.1em;
+    /* keep body text scaling */
+  }
+
+}
+
+
+/* Tablet screens */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 3rem;
+    /* ~48px */
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.3rem;
+    /* ~56px */
+  }
+}
+
+
+@media (max-width: 768px) {
+  ul {
+    text-align: left;
+  }
+
+  ul li {
+    display: inline-block;
+    /* makes items sit neatly */
+    margin: 6px 10px;
+  }
+}
+
+
+/* Desktop only */
+@media (min-width: 1025px) {
+
+  #main>#left {
+    height: 1200;
+    width: 50%;
+    padding: 5px;
+  }
+
+
+  #main>#right {
+    height: 1200;
+    width: 50%;
+    padding: 5px;
+  }
+}
+
+
+#goTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 30px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+#goTopBtn:hover {
+  background-color: #555;
+}
+
+
+/* Registration Section */
+#registration-section {
+  position: relative;
+  width: 100%;
+}
+
+/* Registration Button */
+.reg-btn {
+  position: static;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 60px;
+  background: #d53535e2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background 0.3s ease;
+  font-weight: 600;
+}
+
+.reg-btn:hover {
+  background: #e63939;
+}
+
+/* Popup Overlay */
+.popup {
+  display: none;
+  /* hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Popup Content */
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  animation: fadeInUp 0.5s ease;
+}
+
+/* Close Button */
+.close {
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.close:hover {
+  background-color: #ff4b2b;
+}
+
+/* Inputs */
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #218838;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Popup Overlay */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  /* semi-transparent dark overlay */
+  backdrop-filter: blur(6px);
+  /* frosted glass effect */
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Popup Content with Glassmorphism */
+.popup-content {
+  background: rgba(255, 255, 255, 0.15);
+  /* transparent white */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 25px;
+  width: 80%;
+  max-width: 420px;
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  animation: slideUp 0.5s ease;
+}
+
+/* Headings */
+.popup-content h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #ffcc00;
+  /* highlight color */
+}
+
+/* Inputs */
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: #ddd;
+}
+
+/* Radio Buttons */
+.radio-group label {
+  display: block;
+  margin: 8px 0;
+  font-weight: 500;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #ff4d4d, #ffcc00);
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  nav ul li a {
+    font-size: 0.85rem;
+    /* smaller text */
+    padding: 6px 10px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  nav ul li a {
+    font-size: 0.9rem;
+    padding: 7px 11px;
+  }
+}
+
+@keyframes fadeInLinks {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+nav ul li a {
+  animation: fadeInLinks 0.5s ease forwards;
+}
+
+/* Staggered animation */
+nav ul li:nth-child(1) a {
+  animation-delay: 0.1s;
+}
+
+nav ul li:nth-child(2) a {
+  animation-delay: 0.2s;
+}
+
+nav ul li:nth-child(3) a {
+  animation-delay: 0.3s;
+}
+
+nav ul li:nth-child(4) a {
+  animation-delay: 0.4s;
+}
+
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  ul li {
+    font-size: 1.1rem;
+    /* smaller text */
+  }
+}
+
+
+
+/* Extra shrink on mobile */
+@media (max-width: 600px) {
+  .popup-content {
+    width: 90%;
+    /* almost full width */
+    max-width: 280px;
+    /* smaller max width */
+    max-height: 80vh;
+    /* shorter height */
+    padding: 15px;
+    /* reduce padding */
+    font-size: 14px;
+    /* shrink text */
+    overflow: scroll;
+  }
+
+  #openRegBtn {
+    margin-left: 50%;
+    background-color: #218838;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 576px) {
+  nav ul {
+    gap: 5px;
+    background: #333;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    width: 135px;
+  }
+}

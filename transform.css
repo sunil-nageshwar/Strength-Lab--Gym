@@ -1,0 +1,271 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #222;
+  color: #fff;
+}
+
+nav {
+  display: none;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  background: #333;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.menu-icon {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+/* Show menu inline on larger screens */
+@media (min-width: 768px) {
+  .menu-icon {
+    display: none;
+  }
+
+  nav {
+    display: block;
+    position: static;
+  }
+
+  nav ul {
+    flex-direction: row;
+    background: none;
+    position: static;
+    padding: 0;
+  }
+}
+
+nav ul li a {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background: #ff4b2b;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+
+h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(20px, 5vw, 50px);
+  /* responsive scaling */
+  font-weight: 600;
+  word-spacing: 4px;
+  letter-spacing: 3px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #00ffcc;
+  text-shadow: 0 0 15px #ff2f00, 0 0 30px #ff2200;
+  text-align: center;
+  margin: 20px 0 10px;
+}
+
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: clamp(18px, 6vw, 32px);
+    text-shadow: 0 0 15px #ff2f00, 0 0 30px #ff2200;
+    /* optional: remove glow for readability */
+  }
+}
+
+
+#photo {
+  min-height: 40vh;
+  padding: 10px;
+}
+
+
+a:hover {
+  background: linear-gradient(to bottom right, rgb(255, 50, 50), rgba(255, 30, 71, 0.46));
+  color: transparent;
+  background-clip: text;
+  font-size: 28px;
+}
+
+#main {
+  height: 2000;
+  width: 100%;
+  background-image: url(bg.png);
+
+}
+
+#photo {
+  height: 1000;
+  width: 100%;
+  padding: 20px;
+}
+
+
+#goTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 30px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+#goTopBtn:hover {
+  background-color: #555555b2;
+}
+
+
+h5 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+p {
+  color: rgb(61, 56, 56);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  nav ul li a {
+    font-size: 0.85rem;
+    /* smaller text */
+    padding: 6px 10px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  nav ul li a {
+    font-size: 0.9rem;
+    padding: 7px 11px;
+  }
+}
+
+@keyframes fadeInLinks {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+nav ul li a {
+  animation: fadeInLinks 0.5s ease forwards;
+}
+
+/* Staggered animation */
+nav ul li:nth-child(1) a {
+  animation-delay: 0.1s;
+}
+
+nav ul li:nth-child(2) a {
+  animation-delay: 0.2s;
+}
+
+nav ul li:nth-child(3) a {
+  animation-delay: 0.3s;
+}
+
+nav ul li:nth-child(4) a {
+  animation-delay: 0.4s;
+}
+
+
+/* Mobile adjustments */
+@media (max-width: 576px) {
+  body {
+    font-size: 14px;
+    /* smaller base text */
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    /* shrink headings */
+  }
+
+  h5 {
+    font-size: 1.2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  p {
+    font-size: 0.9rem;
+    /* shrink paragraphs */
+    color: rgb(61, 56, 56);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  #photo {
+    padding: 10px;
+    /* tighter spacing */
+  }
+
+  .col {
+    margin-bottom: 1rem;
+    /* extra spacing between stacked columns */
+  }
+
+  .card {
+    background-color: #ffffffc8;
+  }
+
+  nav ul {
+    gap: 20px;
+    background: #333;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+  }
+}
